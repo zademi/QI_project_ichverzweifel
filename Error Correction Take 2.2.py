@@ -117,19 +117,6 @@ job_monitor(simp_job)
 data_memory = simp_job.result().get_memory()
 print("GHZ memory: ", data_memory)
 
-#plot histogram for GHZ before correction
-ghz_counts = []
-for item in data_memory:
-    new_item = item[31:33]
-    ghz_counts.append(new_item)
-
-print("ghz_counts: ", ghz_counts)
-
-#plot histogram GHZ
-plt.title('GHZ state', fontsize=20)
-plt.ylabel('probabilities', fontsize=15)
-plt.hist(ghz_counts, bins=8, rwidth=0.7, density=True, color = 'blue', edgecolor = 'black')
-plt.show()
 
 # Dividing the data qubit measurements and the ancilla qubit measurements into two lists
 ancilla_list = []
@@ -140,6 +127,13 @@ for measurement in data_memory:
 
 print(ancilla_list)
 print(data_list)
+
+#plot histogram for GHZ before correction
+
+plt.title('GHZ state', fontsize=20)
+plt.ylabel('probabilities', fontsize=15)
+plt.hist(data_list, bins=8, rwidth=0.7, density=True, color = 'blue', edgecolor = 'black')
+plt.show()
 
 # Performing correction on the data qubits using the ancilla measurements
 y = 0
@@ -190,6 +184,14 @@ while y < len(data_list):
 
 # Printing the state of the data qubits after correction
 print(data_list)
+
+new_data = data_list
+
+#plot histogram GHZ
+plt.title('GHZ state after correction', fontsize=20)
+plt.ylabel('probabilities', fontsize=15)
+plt.hist(new_data, bins=8, rwidth=0.7, density=True, color = 'blue', edgecolor = 'black')
+plt.show()
 
 
 
