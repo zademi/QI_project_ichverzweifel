@@ -132,7 +132,7 @@ print(data_list)
 
 plt.title('GHZ state', fontsize=20)
 plt.ylabel('probabilities', fontsize=15)
-plt.hist(data_list, bins=8, rwidth=0.7, density=True, color = 'blue', edgecolor = 'black')
+plt.hist(data_list, bins=8, rwidth=0.7, normedcolor = 'blue', edgecolor = 'black')
 plt.show()
 
 # Performing correction on the data qubits using the ancilla measurements
@@ -190,7 +190,7 @@ new_data = data_list
 #plot histogram GHZ
 plt.title('GHZ state after correction', fontsize=20)
 plt.ylabel('probabilities', fontsize=15)
-plt.hist(new_data, bins=8, rwidth=0.7, density=True, color = 'blue', edgecolor = 'black')
+plt.hist(new_data, bins=8, rwidth=0.7, color = 'blue', edgecolor = 'black')
 plt.show()
 
 
